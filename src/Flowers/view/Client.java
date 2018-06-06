@@ -1,9 +1,12 @@
 package Flowers.view;
 
 import Flowers.controller.Florist;
-
+/**Класс для общения килента с роботом
+ * @version 1.0
+ * @author Xolyspirit */
 public class Client {
-
+    /**Метод инициирует общение. Содержит все наобходимые константы.
+     * принимает  экземпляр @param florist*/
     public void start(Florist florist){
         System.out.println("Greetings? Can i see your flowers?");
         System.out.println(florist.getFlowerList());

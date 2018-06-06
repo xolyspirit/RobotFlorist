@@ -4,14 +4,17 @@ import Flowers.model.entity.Bouquet;
 import Flowers.model.entity.Flower;
 import Flowers.model.FlowerStorage;
 import Flowers.model.entity.Wrapping;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**Класс реализующий робота-флориста
+ * @version 1.0
+ * @author Xolyspirit */
 public class Florist {
+    /**Хранилище цветов*/
     private FlowerStorage flowerStorage = new FlowerStorage();
+    /**Букет, который получит клиент*/
     private Bouquet bouquet = new Bouquet();
-
+    /**Возвращает  @return answer список цветов находящихся в хранилище*/
     public String getFlowerList(){
         String answer = "";
         for (Flower f: flowerStorage.getStorage()) {
@@ -20,7 +23,7 @@ public class Florist {
         answer = answer.substring(0,answer.length()-2);
         return answer;
     }
-
+    /**Возвращает  @return answer список оберток находящихся в хранилище*/
     public String getWrappingList(){
         String answer = "";
         for (Wrapping w: flowerStorage.getWrappingStorage()) {
@@ -29,7 +32,8 @@ public class Florist {
         answer = answer.substring(0,answer.length()-2);
         return answer;
     }
-
+    /**Принимает название @param flowerName цветка и добавляет его к букету.
+     * возвращает отчет о проведенной операции*/
     public String addFlowerToMyBouquet(String flowerName){
         Pattern pattern = Pattern.compile("[A-z]");
         Matcher matcher = pattern.matcher(flowerName);
@@ -59,7 +63,8 @@ public class Florist {
 
 
     }
-
+    /**Принимает название @param wrappingName обертки и добавляет его к букету.
+     * возвращает отчет о проведенной операции*/
     public String addWrappingToMyBouquet(String wrappingName){
         Pattern pattern = Pattern.compile("[A-z]");
         Matcher matcher = pattern.matcher(wrappingName);
@@ -81,7 +86,7 @@ public class Florist {
             return("Wrong wrapping name");
         }
     }
-
+    /**Выдает букет клиенту*/
     public String getMeMyBouquet(){
         if (bouquet.getLeftFlower()==null){
             return("You don't selected any flowers");
